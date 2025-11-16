@@ -23,8 +23,8 @@ event("chatted", function(Data)
 			return
 		end
 
-
 		local argLower = argument:lower()
+
 		if argLower == "white" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("playsong 858509063 false ")
