@@ -1,0 +1,66 @@
+local authorized = "westcliff7799"
+local statusCommand = "!protocol"
+
+local function startswith(str, prefix)
+	return string.sub(str:lower(), 1, #prefix) == prefix:lower()
+end
+
+event("chatted", function(Data)
+	local player = Data.Value[1]
+	local msg = Data.Value[2]
+
+	if startswith(msg, statusCommand) then
+		if player ~= authorized then
+			runCommand("alert " .. player .. " You are not authorized to use this command.")
+			return
+		end
+
+		local argument = string.sub(msg, #statusCommand + 2)
+		argument = argument:gsub("^%s*(.-)%s*$", "%1")
+
+		if argument == "" then
+			runCommand("alert " .. player .. " Please specify a code.")
+			return
+		end
+
+
+		local argLower = argument:lower()
+		if argLower == "white" then
+			runCommand("alert all "..player)
+
+		elseif argLower == "green" then
+			runCommand("alert all "..player)
+
+
+		elseif argLower == "yellow" then
+			runCommand("alert all "..player)
+
+
+		elseif argLower == "red" then
+			runCommand("alert all "..player)
+		elseif argLower == "blue" then
+			runCommand("alert all "..player)
+		elseif argLower == "orange" then
+			runCommand("alert all "..player)
+
+
+		elseif argLower == "ud" then
+			runCommand("playsong 9075074819 loop ")
+			runCommand("light 150 75 50 ")
+			runCommand("lightoff 1 ")
+			wait(5)
+			runCommand("playsound all 4518393274 ")
+			wait(20)
+			runCommand("playsound all 453874513 ")
+			runCommand("sideinfo 〔 Protocol : UD 〕 0 0 0 ")
+			runCommand("subsideinfo 〔 Unauthorized detonation of warheads. 〕 0 0 0 ")
+			wait(40)
+			runCommand("playsound all 5022922460 ")
+			runCommand("modannounce [!]〔Overwatch:〕”Protocol : UD has been initiated. Unauthorized detoation of all warheads will all be detonated in T-5 minutes. All personnel are to evacuate the facility idmediately.” ")
+
+
+        else
+            runCommand("alert "..player.." Unknown code: "..argument)
+        end
+    end
+end)
