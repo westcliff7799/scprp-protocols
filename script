@@ -26,10 +26,19 @@ event("chatted", function(Data)
 
 		local argLower = argument:lower()
 		if argLower == "white" then
-			runCommand("alert all "..player)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("playsong 858509063 false ")
+			runCommand("modannounce [!]〔Overwatch:〕”Code White. Code White. All known threats within the facility have been terminated. Non-essential staff may return to normal operations” ")
+			runCommand("radio [!] Code White has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: White 〕 222 222 222 ")
+			runCommand("subsideinfo 〔 Facility is running at full capacity. 〕 211 211 211 ")
+			runCommand("rlight ")
+			wait(20)
+				runCommand("playsong 9047741097 ")
+
 
 		elseif argLower == "green" then
-			runCommand("alert all "..player)
+			runCommand("alert "..player.." This protocol is still under works: "..argument)
 
 
 		elseif argLower == "yellow" then
@@ -38,9 +47,25 @@ event("chatted", function(Data)
 
 		elseif argLower == "red" then
 			runCommand("alert all "..player)
+
+
 		elseif argLower == "blue" then
 			runCommand("alert all "..player)
+
+
 		elseif argLower == "orange" then
+			runCommand("alert all "..player)
+
+
+		elseif argLower == "purple" then
+			runCommand("alert all "..player)
+
+
+		elseif argLower == "grey" then
+			runCommand("alert all "..player)
+
+
+		elseif argLower == "black" then
 			runCommand("alert all "..player)
 
 
