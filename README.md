@@ -29,7 +29,7 @@
 
 
 
-<h3 align="left">Made With JavaScript:</h3>
-<p align="left"> <a href="[https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://www.lua.org/)" target="_blank" rel="noreferrer"> <img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg](https://education.ti.com/-/media/ti/education/images/products/product-details/hero/solutions-lua-scripting-hero.png?rev=fc15672b-beab-44cc-91ac-d72f6ae511b5&la=en&h=320&w=420&hash=9B31053015CBDBDB4374ECBEC789A8A1)" alt="javascript" width="40" height="40"/> </a> </p>
+<h3 align="left">Made With Lua:</h3>
+<p align="left"> <a href="https://www.lua.org" target="_blank" rel="noreferrer"> <img src="https://www.lua.org/images/luaa.gif" alt="lua" width="40" height="40"/> </a> </p>
 
 #### Copyright &copy; 2025 WEST.
