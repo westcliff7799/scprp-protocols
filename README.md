@@ -6,13 +6,15 @@
 
 ## How To Use:
 #### Desktop: 
-1. Open the file you find interesting.
+1. Open the file you wish to use.
 2. Use the copy button on the file, or click "Raw" and copy it all.
-3. Switch to the Blooket game.
-4. Click the search bar.
-5. Type "javascript:"
+3. Open up the game *SCP: Roleplay* on *Roblox*.
+4. Create a custom server.
+5. Open the settings and go to world/scripts.
 6. Paste the script.
-7. Click enter.
+7. Click *Run Once* and quickly type *!protocol ____* into the roblox chat feature.
+8. If it works, go ahead and save the script and rename it if you wish.
+9. Save the map if you wish on permanently saving the script to the world.
 
 ## Features:
 - Default Scripts:
