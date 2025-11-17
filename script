@@ -42,37 +42,94 @@ event("chatted", function(Data)
 
 
 		elseif argLower == "yellow" then
-			runCommand("alert all "..player)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("modannounce [!]〔Overwatch:〕”A Small-Scale Aggressor breach has been detected within the facility. Containment personnel are to respond immediately. Non-essential staff are to avoid the area” ")
+			runCommand("playsong 125376390569819 ")
+			runCommand("playsound all 5022921954 ")
+			runCommand("radio [!] Code Yellow has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: Yellow 〕 250 218 94 ")
+			runCommand("subsideinfo 〔 Facility undergoing a Euclid level breach. 〕 237 195 73 ")
+			runCommand("light 87 55 1 ")
+
 
 
 		elseif argLower == "red" then
-			runCommand("alert all "..player)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("modannounce [!]〔Overwatch:〕”A Large-Scale Aggressor breach has been detected within the facility. Containment personnel are to respond immediately. Non-essential staff are to evacuate ")
+			runCommand("playsong 117822044981825 ")
+			runCommand("playsound all 5022921954 ")
+			runCommand("radio [!] Code Red has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: Red 〕 130 15 20 ")
+			runCommand("subsideinfo 〔 Facility undergoing a keter level breach. 〕 130 0 0 ")
+			runCommand("light 100 30 10 ")
 
 
 		elseif argLower == "blue" then
-			runCommand("alert all "..player)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("modannounce [!]〔Overwatch:〕”Code Blue. Code Blue. A major hostile assimilation force has been detected in the facility. Combative personnel respond. Non-essential staff evacuate to safety” ")
+			runCommand("radio [!] Code Blue has been declared. Please follow proper protocol. ")
+			runCommand("playsong 88380694300510 ")
+			runCommand("playsound all 9041432938 ")
+			runCommand("sideinfo 〔 Site Status: Blue 〕 52 101 175 ")
+			runCommand("subsideinfo 〔 Facility undergoing a major hostile incursion. 〕 28 73 141 ")
+			runCommand("light 4 55 87 ")
+
 
 
 		elseif argLower == "orange" then
-			runCommand("alert all "..player)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert all [EVENT] Combatives are to now vacate the CDCZ at once and locate the riot line. Failure to leave will result in being detained and punished.
+			runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. Class-D personnel are attempting an incursion in foundation security. Combatives make your way to any zones inhabited by Class-D personnel” ")
+			runCommand("radio [!] Code Orange has been declared. Please follow proper protocol. ")
+			runCommand("playsong 77960600442166 ")
+			runCommand("playsound all 5022924280 ")
+			runCommand("sideinfo 〔 Site Status: Orange 〕 255 165 0 ")
+			runCommand("subsideinfo 〔 Facility undergoing a major resident incursion. 〕 225 140 0 ")
+			runCommand("light 100 50 0 ")
+			wait(22)
+			runCommand("riot acr,br-762,pistol,l2 keycard ")
 
 
 		elseif argLower == "purple" then
-			runCommand("alert all "..player)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("playsong 100033030873559 ")
+			runCommand("playsound all 858509063 ")
+			runCommand("playsound all 4753300572 ")
+			runCommand("modannounce [!]〔Overwatch:〕”Code purple has been declared. Please follow proper protocol. Report any suspicious activity to your nearest security supervisor” ")
+			runCommand("radio [!] Code Purple has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: Purple 〕 180 0 160 ")
+			runCommand("subsideinfo 〔 Possible threat located inside facility. 〕 200 70 184 ")
+			runCommand("light 50 6 59 ")
 
 
 		elseif argLower == "grey" then
-			runCommand("alert all "..player)
+			runCommand("alert "..player.." This protocol is still under works: "..argument)
 
 
 		elseif argLower == "black" then
-			runCommand("alert all "..player)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("light 120 50 30 ")
+			runCommand("lightoff 2 ")
+			runCommand("playsong 71582243002008 ")
+			runCommand("playsound all 2426776857 ")
+			runCommand("radio [!] Code Black has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: Black 〕 10 1 0 ")
+			runCommand("subsideinfo 〔 Full site lockdown in-progress. 〕 10 1 0 ")
+			wait(11)
+				runCommand("playsound all 5022923147 ")
+			wait(3)
+				runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. Code Black lockdown has been initiated. Combatatives, locate the Non-Terminable Threat and recontain the aforementioned anomaly” ")
+
+
+		elseif argLower == "magenta" then
+			runCommand("alert "..player.." This protocol is still under works: "..argument)
 
 
 		elseif argLower == "ud" then
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("playsong 9075074819 loop ")
 			runCommand("light 150 75 50 ")
-			runCommand("lightoff 1 ")
+			runCommand("lightoff 6 ")
 			wait(5)
 			runCommand("playsound all 4518393274 ")
 			wait(20)
@@ -82,6 +139,11 @@ event("chatted", function(Data)
 			wait(40)
 			runCommand("playsound all 5022922460 ")
 			runCommand("modannounce [!]〔Overwatch:〕”Protocol : UD has been initiated. Unauthorized detoation of all warheads will all be detonated in T-5 minutes. All personnel are to evacuate the facility idmediately.” ")
+			wait(30)
+			runCommand("rlight ")
+			runCommand("light 150 75 50 ")
+			runCommand("lightoff 2 ")
+			runCommand("playsong 1836751517 ")
 
 
         else
