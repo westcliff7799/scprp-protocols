@@ -1,5 +1,5 @@
 <h1 align="center">SCP : RP Protocol Script</h1>
-<h3 align="center">Powered by GitHub.</h3>
+<h3 align="center">A *Roblox SCP:RP* addon script.</h3>
 
 #### Made by westcliff7799 (WEST).
 - Have a problem or a request? **Just open an issue (with the right preferences) and I will do my best to respond.**
