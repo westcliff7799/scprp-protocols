@@ -1,6 +1,16 @@
 -- made by @west
-local authorized = "westcliff7799"
 local statusCommand = "!protocol"
+
+local authorized = "westcliff7799"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
+local authorized - "nil_placeholder"
 
 local function startswith(str, prefix)
 	return string.sub(str:lower(), 1, #prefix) == prefix:lower()
