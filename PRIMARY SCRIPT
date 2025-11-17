@@ -83,7 +83,7 @@ event("chatted", function(Data)
 
 		elseif argLower == "orange" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
-			runCommand("alert all [EVENT] Combatives are to now vacate the CDCZ at once and locate the riot line. Failure to leave will result in being detained and punished.
+			runCommand("alert all [EVENT] Combatives are to now vacate the CDCZ at once and locate the riot line. Failure to leave will result in being detained and punished. ")
 			runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. Class-D personnel are attempting an incursion in foundation security. Combatives make your way to any zones inhabited by Class-D personnel” ")
 			runCommand("radio [!] Code Orange has been declared. Please follow proper protocol. ")
 			runCommand("playsong 77960600442166 ")
