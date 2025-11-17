@@ -110,7 +110,7 @@ event("chatted", function(Data)
 		elseif argLower == "grey" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("playsong 100033030873559 ")
-			runCommand("playsound all 2426776857 "
+			runCommand("playsound all 2426776857 ")
 			runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. This facility is now under lockdown procedures. Combative personnel are to respond. Non-Essential staff are to avoid this area” ")
 			runCommand("radio [!] Code Grey has been declared. Please follow proper protocol. ")
 			runCommand("sideinfo 〔 Site Status: Grey 〕 72 72 72 ")
