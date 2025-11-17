@@ -1,8 +1,8 @@
-<h1 align="center">Blooket Hack</h1>
+<h1 align="center">SCP : RP Protocol Script</h1>
 <h3 align="center">One of the best Blooket hacks.</h3>
 
-#### Made by TheCinnamonToastCrunch (TCTC). This is purley for education purposes.
-- 📫 Have a problem or a request? **Just open an issue (with the right preferences) and I will do my best to respond.**
+#### Made by westcliff7799 (WEST).
+- Have a problem or a request? **Just open an issue (with the right preferences) and I will do my best to respond.**
 
 ## How To Use:
 #### Desktop: 
@@ -32,4 +32,4 @@
 <h3 align="left">Made With JavaScript:</h3>
 <p align="left"> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
 
-#### Copyright &copy; 2025 TCTC.
+#### Copyright &copy; 2025 WEST.
