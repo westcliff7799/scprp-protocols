@@ -1,3 +1,4 @@
+- made by @west
 local authorized = "westcliff7799"
 local statusCommand = "!protocol"
 
@@ -15,15 +16,19 @@ event("chatted", function(Data)
 			return
 		end
 
+
 		local argument = string.sub(msg, #statusCommand + 2)
 		argument = argument:gsub("^%s*(.-)%s*$", "%1")
+
 
 		if argument == "" then
 			runCommand("alert " .. player .. " Please specify a code.")
 			return
 		end
 
+
 		local argLower = argument:lower()
+
 
 		if argLower == "white" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
@@ -103,7 +108,14 @@ event("chatted", function(Data)
 
 
 		elseif argLower == "grey" then
-			runCommand("alert "..player.." This protocol is still under works: "..argument)
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("playsong 100033030873559 ")
+			runCommand("playsound all 2426776857 "
+			runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. This facility is now under lockdown procedures. Combative personnel are to respond. Non-Essential staff are to avoid this area” ")
+			runCommand("radio [!] Code Grey has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: Grey 〕 72 72 72 ")
+			runCommand("subsideinfo 〔 The facility is now under lockdown procedures. 〕 65 66 65 ")
+			runCommand("light 50 50 50 ")
 
 
 		elseif argLower == "black" then
