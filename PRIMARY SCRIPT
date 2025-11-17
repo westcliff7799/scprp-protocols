@@ -2,44 +2,34 @@
 local statusCommand = "!protocol"
 
 local authorized = "westcliff7799"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
-local authorized - "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
+local authorized = "nil_placeholder"
 
 local function startswith(str, prefix)
 	return string.sub(str:lower(), 1, #prefix) == prefix:lower()
 end
-
 event("chatted", function(Data)
 	local player = Data.Value[1]
 	local msg = Data.Value[2]
-
 	if startswith(msg, statusCommand) then
 		if player ~= authorized then
 			runCommand("alert " .. player .. " You are not authorized to use this command.")
 			return
 		end
-
-
 		local argument = string.sub(msg, #statusCommand + 2)
 		argument = argument:gsub("^%s*(.-)%s*$", "%1")
-
-
 		if argument == "" then
 			runCommand("alert " .. player .. " Please specify a code.")
 			return
 		end
-
-
 		local argLower = argument:lower()
-
-
 		if argLower == "white" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("playsong 858509063 false ")
@@ -50,12 +40,8 @@ event("chatted", function(Data)
 			runCommand("rlight ")
 			wait(20)
 				runCommand("playsong 9047741097 ")
-
-
 		elseif argLower == "green" then
 			runCommand("alert "..player.." This protocol is still under works: "..argument)
-
-
 		elseif argLower == "yellow" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("modannounce [!]〔Overwatch:〕”A Small-Scale Aggressor breach has been detected within the facility. Containment personnel are to respond immediately. Non-essential staff are to avoid the area” ")
@@ -65,9 +51,6 @@ event("chatted", function(Data)
 			runCommand("sideinfo 〔 Site Status: Yellow 〕 250 218 94 ")
 			runCommand("subsideinfo 〔 Facility undergoing a Euclid level breach. 〕 237 195 73 ")
 			runCommand("light 87 55 1 ")
-
-
-
 		elseif argLower == "red" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("modannounce [!]〔Overwatch:〕”A Large-Scale Aggressor breach has been detected within the facility. Containment personnel are to respond immediately. Non-essential staff are to evacuate ")
@@ -77,8 +60,6 @@ event("chatted", function(Data)
 			runCommand("sideinfo 〔 Site Status: Red 〕 130 15 20 ")
 			runCommand("subsideinfo 〔 Facility undergoing a keter level breach. 〕 130 0 0 ")
 			runCommand("light 100 30 10 ")
-
-
 		elseif argLower == "blue" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("modannounce [!]〔Overwatch:〕”Code Blue. Code Blue. A major hostile assimilation force has been detected in the facility. Combative personnel respond. Non-essential staff evacuate to safety” ")
@@ -88,9 +69,7 @@ event("chatted", function(Data)
 			runCommand("sideinfo 〔 Site Status: Blue 〕 52 101 175 ")
 			runCommand("subsideinfo 〔 Facility undergoing a major hostile incursion. 〕 28 73 141 ")
 			runCommand("light 4 55 87 ")
-
-
-
+local authorized = "westcliff7799"
 		elseif argLower == "orange" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("alert all [EVENT] Combatives are to now vacate the CDCZ at once and locate the riot line. Failure to leave will result in being detained and punished. ")
@@ -103,8 +82,6 @@ event("chatted", function(Data)
 			runCommand("light 100 50 0 ")
 			wait(22)
 				runCommand("riot acr,br-762,pistol,l2 keycard ")
-
-
 		elseif argLower == "purple" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("playsong 100033030873559 ")
@@ -115,8 +92,6 @@ event("chatted", function(Data)
 			runCommand("sideinfo 〔 Site Status: Purple 〕 180 0 160 ")
 			runCommand("subsideinfo 〔 Possible threat located inside facility. 〕 200 70 184 ")
 			runCommand("light 50 6 59 ")
-
-
 		elseif argLower == "grey" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("playsong 1837842309 ")
@@ -126,8 +101,6 @@ event("chatted", function(Data)
 			runCommand("sideinfo 〔 Site Status: Grey 〕 72 72 72 ")
 			runCommand("subsideinfo 〔 The facility is now under lockdown procedures. 〕 65 66 65 ")
 			runCommand("light 50 50 50 ")
-
-
 		elseif argLower == "black" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("light 120 50 30 ")
@@ -140,12 +113,8 @@ event("chatted", function(Data)
 			wait(11)
 				runCommand("playsound all 5022923147 ")
 				runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. Code Black lockdown has been initiated. Combatatives, locate the Non-Terminable Threat and recontain the aforementioned anomaly” ")
-
-
 		elseif argLower == "magenta" then
 			runCommand("alert "..player.." This protocol is still under works: "..argument)
-
-
 		elseif argLower == "ud" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
 			runCommand("playsong 9075074819 loop ")
@@ -166,8 +135,6 @@ event("chatted", function(Data)
 				runCommand("lightoff 2 ")
 				runCommand("stopsong ")
 				runCommand("playsong 1836751517 ")
-
-
         else
             runCommand("alert "..player.." Unknown code: "..argument)
         end
