@@ -1,1 +1,41 @@
+-- made by @west
+local eventCommand = "!event"
 
+local authorized = "westcliff7799"
+
+local function startswith(str, prefix)
+	return string.sub(str:lower(), 1, #prefix) == prefix:lower()
+end
+event("chatted", function(Data)
+	local player = Data.Value[1]
+	local msg = Data.Value[2]
+	if startswith(msg, eventCommand) then
+		if player ~= authorized then
+			runCommand("alert " .. player .. " You are not authorized to use this command.")
+			return
+		end
+		local argument = string.sub(msg, #eventCommand + 2)
+		argument = argument:gsub("^%s*(.-)%s*$", "%1")
+		if argument == "" then
+			runCommand("alert " .. player .. " Please specify a code.")
+			return
+		end
+		local argLower = argument:lower()
+
+    if argLower == "white" then
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("playsong 858509063 false ")
+			runCommand("modannounce [!]〔Overwatch:〕”Code White. Code White. All known threats within the facility have been terminated. Non-essential staff may return to normal operations” ")
+			runCommand("radio [!] Code White has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: White 〕 222 222 222 ")
+			runCommand("subsideinfo 〔 Facility is running at full capacity. 〕 211 211 211 ")
+			runCommand("rlight ")
+			wait(20)
+				runCommand("playsong 9047741097 ")
+
+    else
+      runCommand("alert "..player.." Unknown code: "..argument)
+
+      end
+    end
+end)
