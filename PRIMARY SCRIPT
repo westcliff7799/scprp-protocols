@@ -1,7 +1,7 @@
 -- made by @west
 local statusCommand = "!protocol"
 
-local authorized = "westcliff7799"
+local authorized = "Lexazerkjt"
 
 local function startswith(str, prefix)
 	return string.sub(str:lower(), 1, #prefix) == prefix:lower()
@@ -142,25 +142,24 @@ event("chatted", function(Data)
 			wait(2)
 				runCommand("playsound all 9077168330 ")
 				runCommand("playsound all 8464268467 loop ")
-				runCommand("light 100 30 10 ")
 				runCommand("modannounce [!]〔Automation Message:〕”The facility power has been damaged. Any maintinance officer is to report to the nearest emergency power generator as soon as possible” ")
 			wait(1)
 				runCommand("lightoff 1 ")
-			wait(2)
+				runCommand("light 100 30 10 ")
+			wait(3)
 				runCommand("lightoff 1 ")
-			wait(2)
+			wait(3)
 				runCommand("lightoff 1 ")
-			wait(2)
+			wait(3)
 				runCommand("lightoff 1 ")
-			wait(2)
-				runCommand("lightoff 1 ")
-			wait(2)
+			wait(3)
 				runCommand("lightoff 1 ")
 				runCommand("stopsounds all ")
-			wait(20)
+			wait(25)
 				runCommand("playsound all 9114583242 ")
-			wait(2)
+			wait(5)
 				runCommand("rlight ")
+				runCommand("modannounce [!]〔Automation Message:〕”The facility power has been repaired. This was due to a scheduled power grid change in the system. Maintinence personnel report to generators for a debriefing” ")
 			wait(5)
 				runCommand("stopsong ")
 
