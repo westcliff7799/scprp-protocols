@@ -25,6 +25,7 @@ event("chatted", function(Data)
             runCommand("alert " .. player .. " Please specify a code.")
             return
         end
+        local argLower = argument:lower()
 
 		if argLower == "white" then
 			runCommand("alert %class "..player.." has triggered protocol "..argument)
