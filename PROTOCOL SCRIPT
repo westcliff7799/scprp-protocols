@@ -1,4 +1,5 @@
--- made by @west
+-- source code by @friendo3
+-- protocols by @west
 local statusCommand = "!protocol"
 
 local authorized = "westcliff7799"
