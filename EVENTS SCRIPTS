@@ -1,5 +1,5 @@
 -- source code by @friendo3
--- events by @west
+-- protocols by @west
 
 local eventCommand = "!event"
 local authorized = {"westcliff7799", "Site4o4SSUH"}
@@ -12,7 +12,7 @@ event("chatted", function(Data)
     local player = Data.Value[1]
     local msg = Data.Value[2]
 
-    if startswith(msg, statusCommand) then
+    if startswith(msg, eventCommand) then
         if not table.find(authorized, player) then
             runCommand("alert " .. player .. " You are not authorized to use this command.")
             return
@@ -25,6 +25,7 @@ event("chatted", function(Data)
             runCommand("alert " .. player .. " Please specify an event.")
             return
         end
+        local argLower = argument:lower()
 
 		if argLower == "powergridchange" then
 			runCommand("alert %class "..player.." has triggered event "..argument)
@@ -53,11 +54,11 @@ event("chatted", function(Data)
 			wait(5)
 				runCommand("stopsong ")
 
-		elseif argLower == "green" then
-			runCommand("alert "..player.." This event is still under works: "..argument)
+		elseif argLower == "test" then
+			runCommand("alert %class "..player.." has triggered event "..argument)
 
         else
-            runCommand("alert "..player.." Unknown event: "..argument)
+            runCommand("alert "..player.." Unknown code: "..argument)
         end
     end
 end)
