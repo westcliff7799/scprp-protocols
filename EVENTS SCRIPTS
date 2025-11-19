@@ -54,9 +54,6 @@ event("chatted", function(Data)
 			wait(5)
 				runCommand("stopsong ")
 
-		elseif argLower == "test" then
-			runCommand("alert %class "..player.." has triggered event "..argument)
-
         else
             runCommand("alert "..player.." Unknown code: "..argument)
         end
