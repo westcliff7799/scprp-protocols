@@ -1,0 +1,61 @@
+-- source code by @friendo3
+-- protocols by @west
+
+local reactorCommand = "!reactor"
+local authorized = {"westcliff7799", "Site4o4SSUH"}
+
+local function startswith(str, prefix)
+    return string.sub(str:lower(), 1, #prefix) == prefix:lower()
+end
+
+event("chatted", function(Data)
+    local player = Data.Value[1]
+    local msg = Data.Value[2]
+
+    if startswith(msg, reactorCommand) then
+        if not table.find(authorized, player) then
+            runCommand("alert " .. player .. " You are not authorized to use this command.")
+            return
+        end
+
+        local argument = string.sub(msg, #reactorCommand + 2)
+        argument = argument:gsub("^%s*(.-)%s*$", "%1")
+
+        if argument == "" then
+            runCommand("alert " .. player .. " Please specify an event.")
+            return
+        end
+        local argLower = argument:lower()
+
+		if argLower == "powergridchange" then
+			runCommand("alert %class "..player.." has triggered event "..argument)
+			runCommand("playsong 80076774725316 loop ")
+			wait(2)
+				runCommand("playsound all 9077168330 ")
+				runCommand("playsound all 8464268467 loop ")
+				runCommand("modannounce [!]〔Automation Message:〕”The facility power has been damaged. Any maintinance officer is to report to the nearest emergency power generator as soon as possible” ")
+			wait(1)
+				runCommand("lightoff 1 ")
+				runCommand("light 100 30 10 ")
+			wait(3)
+				runCommand("lightoff 1 ")
+			wait(3)
+				runCommand("lightoff 1 ")
+			wait(3)
+				runCommand("lightoff 1 ")
+			wait(3)
+				runCommand("lightoff 1 ")
+				runCommand("stopsounds all ")
+			wait(25)
+				runCommand("playsound all 9114583242 ")
+			wait(5)
+				runCommand("rlight ")
+				runCommand("modannounce [!]〔Automation Message:〕”The facility power has been repaired. This was due to a scheduled power grid change in the system. Maintinence personnel report to generators for a debriefing” ")
+			wait(5)
+				runCommand("stopsong ")
+
+        else
+            runCommand("alert "..player.." Unknown code: "..argument)
+        end
+    end
+end)
