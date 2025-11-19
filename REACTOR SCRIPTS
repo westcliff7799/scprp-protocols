@@ -27,32 +27,52 @@ event("chatted", function(Data)
         end
         local argLower = argument:lower()
 
-		if argLower == "powergridchange" then
-			runCommand("alert %class "..player.." has triggered event "..argument)
-			runCommand("playsong 80076774725316 loop ")
-			wait(2)
-				runCommand("playsound all 9077168330 ")
-				runCommand("playsound all 8464268467 loop ")
-				runCommand("modannounce [!]〔Automation Message:〕”The facility power has been damaged. Any maintinance officer is to report to the nearest emergency power generator as soon as possible” ")
-			wait(1)
-				runCommand("lightoff 1 ")
-				runCommand("light 100 30 10 ")
-			wait(3)
-				runCommand("lightoff 1 ")
-			wait(3)
-				runCommand("lightoff 1 ")
-			wait(3)
-				runCommand("lightoff 1 ")
-			wait(3)
-				runCommand("lightoff 1 ")
-				runCommand("stopsounds all ")
-			wait(25)
-				runCommand("playsound all 9114583242 ")
-			wait(5)
-				runCommand("rlight ")
-				runCommand("modannounce [!]〔Automation Message:〕”The facility power has been repaired. This was due to a scheduled power grid change in the system. Maintinence personnel report to generators for a debriefing” ")
-			wait(5)
-				runCommand("stopsong ")
+		if argLower == "normal" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+
+		if argLower == "tense" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "unstable" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "meltdown" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "powerdischarge" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "shutdown" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "stall" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "startuperror" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "emergencycoolant" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "blackhole" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
+
+		if argLower == "startup" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsound all 609189496 loop ")
 
         else
             runCommand("alert "..player.." Unknown code: "..argument)
