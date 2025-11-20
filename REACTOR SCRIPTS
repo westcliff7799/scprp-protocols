@@ -45,7 +45,30 @@ event("chatted", function(Data)
 
 		elseif argLower == "tense" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
+			runCommand("alert "..player.." The reactor event: "..argument..", will begin shortly. Please wait. ")
+			runCommand("alert all [EVENT] The following events after this message dispears will have flashing lights. If you are affected by epilepsy please either leave or redirect eye contact. Thank you. ")
+			runCommand("playsong 92444688295680 loop ")
+			runCommand("playsound all 4671540245 loop 3 1 ")
+			wait(1)
+				local powerSurge = true
+				local function lightFlicker()
+					repeat
+						runCommand("rlight ")
+						runCommand("light 30 30 30 ")
+						runCommand("lightoff 1 ")
+						runCommand("rlight ")
+						runCommand("light 30 30 30 ")
+						runCommand("lightoff 1 ")
+						runCommand("lightoff 1 ")
+						task.wait(0.01)
+					until powerSurge == false
+				end
+				task.spawn(lightFlicker)
+				task.wait(30)
+					powerSurge = false
+			wait(4)
+				runCommand("modannounce [!]〔ASAS:〕”Warning. ” ")
+				runCommand("stopsong ")
 
 		elseif argLower == "unstable" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
@@ -53,7 +76,6 @@ event("chatted", function(Data)
 
 		elseif argLower == "meltdown" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
 
 		elseif argLower == "powerdischarge" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
