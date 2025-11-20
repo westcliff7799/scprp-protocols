@@ -43,19 +43,19 @@ event("chatted", function(Data)
 		if argLower == "normal" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 
-		if argLower == "tense" then
+		ifelse argLower == "tense" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "unstable" then
+		ifelse argLower == "unstable" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "meltdown" then
+		ifelse argLower == "meltdown" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "powerdischarge" then
+		ifelse argLower == "powerdischarge" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsong 1846999567 ")
 			runCommand("playsound all 75252663376211 ")
@@ -89,27 +89,27 @@ event("chatted", function(Data)
 			wait(13)
 				runCommand("stopsounds all ")
 
-		if argLower == "shutdown" then
+		ifelse argLower == "shutdown" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "stall" then
+		ifelse argLower == "stall" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "startuperror" then
+		ifelse argLower == "startuperror" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "emergencycoolant" then
+		ifelse argLower == "emergencycoolant" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "blackhole" then
+		ifelse argLower == "blackhole" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
-		if argLower == "startup" then
+		ifelse argLower == "startup" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
 
