@@ -94,15 +94,68 @@ end)
 
 
 
+
+
+
+
+
+-- source code by @friendo3
+-- protocols by @west
+
+local eventCommand = "!event"
+local authorized = {"westcliff7799", "Site4o4SSUH"}
+
+-- power surge fuctions
+local powerSurge = true
+local function lightFlicker()
+end
+
+local function startswith(str, prefix)
+    return string.sub(str:lower(), 1, #prefix) == prefix:lower()
+end
+
+event("chatted", function(Data)
+    local player = Data.Value[1]
+    local msg = Data.Value[2]
+
+    if startswith(msg, eventCommand) then
+        if not table.find(authorized, player) then
+            runCommand("alert " .. player .. " You are not authorized to use this command.")
+            return
+        end
+
+        local argument = string.sub(msg, #eventCommand + 2)
+        argument = argument:gsub("^%s*(.-)%s*$", "%1")
+
+        if argument == "" then
+            runCommand("alert " .. player .. " Please specify a code.")
+            return
+        end
+        local argLower = argument:lower()
+
+		if argLower == "powersurge" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsong 75252663376211 ")
 			wait(1)
-			runCommand("light 100 30 10 ")
-			runCommand("lightoff 1 ")
-			runCommand("rlight ")
-			runCommand("light 100 30 10 ")
-			runCommand("lightoff 2")
-			runCommand("rlight ")
-			runCommand("light 100 30 10 ")
-			runCommand("lightoff 1 ")
-			runCommand("lightoff 2 ")
+				repeat
+					runCommand("rlight ")
+					runCommand("light 100 30 10 ")
+					runCommand("lightoff 2 ")
+					runCommand("rlight ")
+					runCommand("light 100 30 10 ")
+					runCommand("lightoff 2 ")
+					runCommand("lightoff 3 ")
+					task.wait(0.01)
+				until powerSurge == false
+			task.spawn(lightFlicker)
+			task.wait(5)
+				powerSurge = false
+
+		elseif argLower == "test" then
+			runCommand("alert %class "..player.." has triggered protocol "..argument)
+
+        else
+            runCommand("alert "..player.." Unknown code: "..argument)
+        end
+    end
+end)
