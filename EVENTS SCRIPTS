@@ -3,9 +3,6 @@
 
 -- options:
 -- !event powergridchange
--- !event
--- !event
--- !event
 
 local eventCommand = "!event"
 local authorized = {"westcliff7799", "Site4o4SSUH"}
