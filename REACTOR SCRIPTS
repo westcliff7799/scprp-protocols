@@ -137,6 +137,8 @@ event("chatted", function(Data)
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsong 75252663376211 ")
 			wait(1)
+				local powerSurge = true
+				local function lightFlicker()
 				repeat
 					runCommand("rlight ")
 					runCommand("light 100 30 10 ")
