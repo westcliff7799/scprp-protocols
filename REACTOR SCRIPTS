@@ -88,3 +88,21 @@ event("chatted", function(Data)
         end
     end
 end)
+
+
+
+
+
+
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("playsong 75252663376211 ")
+			wait(1)
+			runCommand("light 100 30 10 ")
+			runCommand("lightoff 1 ")
+			runCommand("rlight ")
+			runCommand("light 100 30 10 ")
+			runCommand("lightoff 2")
+			runCommand("rlight ")
+			runCommand("light 100 30 10 ")
+			runCommand("lightoff 1 ")
+			runCommand("lightoff 2 ")
