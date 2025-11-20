@@ -1,4 +1,4 @@
--- source code by @friendo3
+			-- source code by @friendo3
 -- protocols by @west
 
 -- options:
@@ -57,7 +57,37 @@ event("chatted", function(Data)
 
 		if argLower == "powerdischarge" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
+			runCommand("playsong 1846999567 ")
+			runCommand("playsound all 75252663376211 ")
+			wait(1)
+				local powerSurge = true
+				local function lightFlicker()
+					repeat
+						runCommand("rlight ")
+						runCommand("light 100 30 10 ")
+						runCommand("lightoff 2 ")
+						runCommand("rlight ")
+						runCommand("light 100 30 10 ")
+						runCommand("lightoff 2 ")
+						runCommand("lightoff 3 ")
+						task.wait(0.01)
+					until powerSurge == false
+				end
+				task.spawn(lightFlicker)
+				task.wait(30)
+					powerSurge = false
+
+				resetLights()
+			wait(0.5)
+				colorLights(100, 30, 10)
+			wait(0.5)
+				disableLights(1.5)
+				runCommand("playsound all 92444688295680 loop ")
+			wait (9)
+				runCommand("stopsong ")
+				runCommand("playsound all 82198078552995 ")
+			wait(13)
+				runCommand("stopsounds all ")
 
 		if argLower == "shutdown" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
@@ -82,74 +112,6 @@ event("chatted", function(Data)
 		if argLower == "startup" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsound all 609189496 loop ")
-
-        else
-            runCommand("alert "..player.." Unknown code: "..argument)
-        end
-    end
-end)
-
-
-
-
-
-
-
-
-
-
-
--- source code by @friendo3
--- protocols by @west
-
-local eventCommand = "!event"
-local authorized = {"westcliff7799", "Site4o4SSUH"}
-
-local function startswith(str, prefix)
-    return string.sub(str:lower(), 1, #prefix) == prefix:lower()
-end
-
-event("chatted", function(Data)
-    local player = Data.Value[1]
-    local msg = Data.Value[2]
-
-    if startswith(msg, eventCommand) then
-        if not table.find(authorized, player) then
-            runCommand("alert " .. player .. " You are not authorized to use this command.")
-            return
-        end
-
-        local argument = string.sub(msg, #eventCommand + 2)
-        argument = argument:gsub("^%s*(.-)%s*$", "%1")
-
-        if argument == "" then
-            runCommand("alert " .. player .. " Please specify a code.")
-            return
-        end
-        local argLower = argument:lower()
-
-		if argLower == "powersurge" then
-			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsong 75252663376211 ")
-			wait(1)
-				local powerSurge = true
-				local function lightFlicker()
-				repeat
-					runCommand("rlight ")
-					runCommand("light 100 30 10 ")
-					runCommand("lightoff 2 ")
-					runCommand("rlight ")
-					runCommand("light 100 30 10 ")
-					runCommand("lightoff 2 ")
-					runCommand("lightoff 3 ")
-					task.wait(0.01)
-				until powerSurge == false
-			task.spawn(lightFlicker)
-			task.wait(5)
-				powerSurge = false
-
-		elseif argLower == "test" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
 
         else
             runCommand("alert "..player.." Unknown code: "..argument)
