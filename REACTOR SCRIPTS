@@ -47,6 +47,8 @@ event("chatted", function(Data)
 		end
 		local argLower = argument:lower()
 
+
+-- reactor status:
 		if argLower == "normal" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 
@@ -78,11 +80,64 @@ event("chatted", function(Data)
 
 		elseif argLower == "unstable" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
+			runCommand("alert all [EVENT] The following events after this message will have flashing lights. If you are affected by this please either leave the game or redirect eye contact. Thank you. ")
+			runCommand("playsong 92444688295680 loop ")
+			runCommand("modannounce [!]〔ASAS:〕”Danger. The reactor core has reached 4,500 kelvin. The option to activate the safeguard is now deemed non-functional and expired. Please activate cooling systems immediately” ")
+			wait(1)
+				local powerSurge = true
+				local function lightFlicker()
+					repeat
+						runCommand("rlight ")
+						runCommand("light 30 30 30 ")
+						runCommand("lightoff 1 ")
+						runCommand("rlight ")
+						runCommand("light 30 30 30 ")
+						runCommand("lightoff 1 ")
+						runCommand("lightoff 1 ")
+						task.wait(0.01)
+					until powerSurge == false
+				end
+				task.spawn(lightFlicker)
+				task.wait(30)
+					powerSurge = false
+			wait(1)
+			resetLights()
+			runCommand("stopsong ")
 
 		elseif argLower == "meltdown" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+			runCommand("alert all [EVENT] The following events after this message will have flashing lights. If you are affected by this please either leave the game or redirect eye contact. Thank you. ")
+			runCommand("playsong 6680429831 loop ")
+			runCommand("modannounce [!]〔ASAS:〕”Attention. Reactor core meltdown detected. An automatic code white directive has been issued. All non-essential staff evacuate to the emergency bunker or evacuate the facilty” ")
+			wait(1)
+				local powerSurge = true
+				local function lightFlicker()
+					repeat
+						runCommand("rlight ")
+						runCommand("light 100 30 10 ")
+						runCommand("lightoff 2 ")
+						runCommand("rlight ")
+						runCommand("light 100 30 10 ")
+						runCommand("lightoff 2 ")
+						runCommand("lightoff 3 ")
+						task.wait(0.01)
+					until powerSurge == false
+				end
+				task.spawn(lightFlicker)
+				task.wait(30)
+					powerSurge = false
 
+				resetLights()
+			wait(0.5)
+				colorLights(100, 30, 10)
+
+
+-- safeguard events:
+		elseif argLower == "safeguard" then
+			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
+
+
+-- other events:
 		elseif argLower == "powerdischarge" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
 			runCommand("playsong 1846999567 ")
@@ -116,32 +171,10 @@ event("chatted", function(Data)
 			wait(13)
 				runCommand("stopsounds all ")
 
-		elseif argLower == "shutdown" then
-			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
 
-		elseif argLower == "stall" then
-			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
-
-		elseif argLower == "startuperror" then
-			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
-
-		elseif argLower == "emergencycoolant" then
-			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
-
-		elseif argLower == "blackhole" then
-			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
-
-		elseif argLower == "startup" then
-			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("playsound all 609189496 loop ")
-
+-- unknown event
 		else
-			runCommand("alert "..player.." Unknown code: "..argument)
+			runCommand("alert "..player.." Unknown event "..argument)
 		end
 	end
 end)
