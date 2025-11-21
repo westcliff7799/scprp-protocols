@@ -2,24 +2,24 @@
 -- events by @west
 
 -- options:
--- !reactor normal
--- !reactor tense
--- !reactor unstable
--- !reactor meltdown
+-- !reactor normal (INCOMPLETE)
+-- !reactor tense (COMPLETE)
+-- !reactor unstable (COMPLETE)
+-- !reactor meltdown (INCOMPLETE)
 
--- !reactor safeguard
--- !reactor safeguardfailure
+-- !reactor safeguard (INCOMPLETE)
+-- !reactor safeguardfailure (INCOMPLETE)
 
--- !reactor startup
--- !reactor startupfailure
+-- !reactor startup (INCOMPLETE)
+-- !reactor startupfailure (INCOMPLETE)
 
--- !reactor shutdown
--- !reactor shutdownfailure
+-- !reactor shutdown (INCOMPLETE)
+-- !reactor shutdownfailure (INCOMPLETE)
 
--- !reactor powerdischarge
--- !reactor stall
--- !reactor emergencycoolant
--- !reactor blackhole
+-- !reactor powerdischarge (COMPLETE)
+-- !reactor stall (INCOMPLETE)
+-- !reactor emergencycoolant (INCOMPLETE)
+-- !reactor blackhole (INCOMPLETE)
 
 local reactorCommand = "!reactor"
 local authorized = {"westcliff7799", "Site4o4SSUH"}
