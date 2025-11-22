@@ -19,7 +19,7 @@ event("chatted", function(Data)
         end
         local argLower = argument:lower()
 		if argLower == "powergridchange" then
-			runCommand("alert %class "..player.." has triggered event "..argument)
+			runCommand("alert %staff "..player.." has triggered event "..argument)
 			runCommand("playsong 80076774725316 loop ")
 			wait(2)
 				runCommand("playsound all 9077168330 ")
