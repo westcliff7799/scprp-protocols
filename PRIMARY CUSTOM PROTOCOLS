@@ -28,7 +28,7 @@ event("chatted", function(Data)
         local argLower = argument:lower()
 
 		if argLower == "white" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("playsong 858509063 false ")
 			runCommand("modannounce [!]〔Overwatch:〕”Code White. Code White. All known threats within the facility have been terminated. Non-essential staff may return to normal operations” ")
 			runCommand("radio [!] Code White has been declared. Please follow proper protocol. ")
@@ -42,7 +42,7 @@ event("chatted", function(Data)
 			runCommand("alert "..player.." This protocol is still under works: "..argument)
 
 		elseif argLower == "yellow" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("modannounce [!]〔Overwatch:〕”A Small-Scale Aggressor breach has been detected within the facility. Containment personnel are to respond immediately. Non-essential staff are to avoid the area” ")
 			runCommand("playsong 125376390569819 ")
 			runCommand("playsound all 5022921954 ")
@@ -52,7 +52,7 @@ event("chatted", function(Data)
 			runCommand("light 87 55 1 ")
 
 		elseif argLower == "red" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("modannounce [!]〔Overwatch:〕”A Large-Scale Aggressor breach has been detected within the facility. Containment personnel are to respond immediately. Non-essential staff are to evacuate ")
 			runCommand("playsong 117822044981825 ")
 			runCommand("playsound all 5022921954 ")
@@ -62,7 +62,7 @@ event("chatted", function(Data)
 			runCommand("light 100 30 10 ")
 
 		elseif argLower == "blue" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("modannounce [!]〔Overwatch:〕”Code Blue. Code Blue. A major hostile assimilation force has been detected in the facility. Combative personnel respond. Non-essential staff evacuate to safety” ")
 			runCommand("radio [!] Code Blue has been declared. Please follow proper protocol. ")
 			runCommand("playsong 88380694300510 ")
@@ -72,7 +72,7 @@ event("chatted", function(Data)
 			runCommand("light 4 55 87 ")
 
 		elseif argLower == "orange" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("alert all [EVENT] Combatives are to now vacate the CDCZ at once and locate the riot line. Failure to leave will result in being detained and punished. ")
 			runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. Class-D personnel are attempting an incursion in foundation security. Combatives make your way to any zones inhabited by Class-D personnel” ")
 			runCommand("radio [!] Code Orange has been declared. Please follow proper protocol. ")
@@ -85,7 +85,7 @@ event("chatted", function(Data)
 				runCommand("riot acr,br-762,pistol,l2 keycard ")
 
 		elseif argLower == "purple" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("playsong 100033030873559 ")
 			runCommand("playsound all 858509063 ")
 			runCommand("playsound all 4753300572 ")
@@ -96,7 +96,7 @@ event("chatted", function(Data)
 			runCommand("light 50 6 59 ")
 
 		elseif argLower == "grey" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("playsong 1837842309 ")
 			runCommand("playsound all 2426776857 ")
 			runCommand("modannounce [!]〔Overwatch:〕”Attention all personnel. This facility is now under lockdown procedures. Combative personnel are to respond. Non-Essential staff are to avoid this area” ")
@@ -106,7 +106,7 @@ event("chatted", function(Data)
 			runCommand("light 50 50 50 ")
 
 		elseif argLower == "black" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("light 120 50 30 ")
 			runCommand("lightoff 2 ")
 			runCommand("playsong 71582243002008 ")
@@ -121,7 +121,7 @@ event("chatted", function(Data)
 			runCommand("alert "..player.." This protocol is still under works: "..argument)
 
 		elseif argLower == "ud" then
-			runCommand("alert %class "..player.." has triggered protocol "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
 			runCommand("playsong 9075074819 loop ")
 			runCommand("light 150 75 50 ")
 			runCommand("lightoff 6 ")
