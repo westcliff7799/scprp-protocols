@@ -54,28 +54,9 @@ event("chatted", function(Data)
 
 		elseif argLower == "tense" then
 			runCommand("alert %class "..player.." has triggered a reactor event: "..argument)
-			runCommand("alert all [EVENT] The following events after this message will have flashing lights. If you are affected by this please either leave the game or redirect eye contact. Thank you. ")
 			runCommand("playsong 92444688295680 loop ")
 			runCommand("modannounce [!]〔ASAS:〕”Danger. The reactor core has reached 3,500 kelvin. The option to engage the reactor meltdown safeguard is now available. Please activate cooling systems immediately” ")
-			wait(1)
-				local powerSurge = true
-				local function lightFlicker()
-					repeat
-						runCommand("rlight ")
-						runCommand("light 30 30 30 ")
-						runCommand("lightoff 1 ")
-						runCommand("rlight ")
-						runCommand("light 30 30 30 ")
-						runCommand("lightoff 1 ")
-						runCommand("lightoff 1 ")
-						task.wait(0.01)
-					until powerSurge == false
-				end
-				task.spawn(lightFlicker)
-				task.wait(30)
-					powerSurge = false
-			wait(1)
-			resetLights()
+			wait(30)
 			runCommand("stopsong ")
 
 		elseif argLower == "unstable" then
@@ -147,12 +128,12 @@ event("chatted", function(Data)
 				local function lightFlicker()
 					repeat
 						runCommand("rlight ")
-						runCommand("light 100 30 10 ")
-						runCommand("lightoff 2 ")
+						runCommand("light 30 30 30 ")
+						runCommand("lightoff 1 ")
 						runCommand("rlight ")
-						runCommand("light 100 30 10 ")
-						runCommand("lightoff 2 ")
-						runCommand("lightoff 3 ")
+						runCommand("light 30 30 30 ")
+						runCommand("lightoff 1 ")
+						runCommand("lightoff 1 ")
 						task.wait(0.01)
 					until powerSurge == false
 				end
@@ -170,6 +151,7 @@ event("chatted", function(Data)
 				runCommand("playsong 82198078552995 ")
 			wait(13)
 				runCommand("stopsounds all ")
+				runCommand("playsong 1846999567 ")
 
 
 -- unknown event
