@@ -39,7 +39,13 @@ event("chatted", function(Data)
 				runCommand("playsong 9047741097 ")
 
 		elseif argLower == "green" then
-			runCommand("alert "..player.." This protocol is still under works: "..argument)
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
+			runCommand("playsong playsong 137684966510379 ")
+			runCommand("modannounce [!]〔Overwatch:〕”A contamination breach has been detected within the facility. Bio-hazard units will be re-routed to assess the situation. Non-essential staff are to avoid this area” ")
+			runCommand("radio [!] Protocol Green has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: Green 〕 60 100 28 ")
+			runCommand("subsideinfo 〔 Facility undergoing a bio-hazardous level breach. 〕 70 100 35 ")
+			runCommand("light 0 75 25 ")
 
 		elseif argLower == "yellow" then
 			runCommand("alert %staff "..player.." has triggered protocol "..argument)
