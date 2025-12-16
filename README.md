@@ -17,7 +17,7 @@
 9. Save the map if you wish on permanently saving the script to the world.
 
 ## Features (WIP):
-- Default Scripts:
+- Primary Custom Protocols:
     - <a href="test link">Test</a> - Test.
 
 
