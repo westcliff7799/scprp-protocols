@@ -1,0 +1,115 @@
+-- source code by @friendo3
+-- protocols by @west
+
+local statusCommand = "!breach"
+local authorized = {"westcliff7799"}
+
+local function startswith(str, prefix)
+    return string.sub(str:lower(), 1, #prefix) == prefix:lower()
+end
+
+event("chatted", function(Data)
+    local player = Data.Value[1]
+    local msg = Data.Value[2]
+
+    if startswith(msg, statusCommand) then
+        if not table.find(authorized, player) then
+            runCommand("alert " .. player .. " You are not authorized to use this command.")
+            return
+        end
+
+        local argument = string.sub(msg, #statusCommand + 2)
+        argument = argument:gsub("^%s*(.-)%s*$", "%1")
+
+        if argument == "" then
+            runCommand("alert " .. player .. " Please specify a code.")
+            return
+        end
+        local argLower = argument:lower()
+
+		if argLower == "white" then
+			runCommand("alert %staff "..player.." has triggered protocol "..argument)
+			runCommand("playsong 858509063 false ")
+			runCommand("modannounce [!]〔Overwatch:〕”Code White. Code White. All known threats within the facility have been terminated. Non-essential staff may return to normal operations” ")
+			runCommand("radio [!] Code White has been declared. Please follow proper protocol. ")
+			runCommand("sideinfo 〔 Site Status: White 〕 222 222 222 ")
+			runCommand("subsideinfo 〔 Facility is running at full capacity. 〕 211 211 211 ")
+			runCommand("rlight ")
+			wait(20)
+				runCommand("playsong 9047741097 ")
+
+		elseif argLower == "076" then
+			runCommand("alert %staff "..player.." has triggered the breach event for "..argument)
+			runCommand("playsound all 2712946720 0 1 25 ")
+			wait(0.5)
+				runCommand("modannounce [!]〔Overwatch:〕”Anomaly 076-2 is attempting a containment breach, it's shock collar has failed. Attempting to commence flood procedures” ")
+			wait(0.5)
+				runCommand("playsong 130576358490959 0 1.5 25 ")
+			wait(7.8)
+				runCommand("playsong 115660660596817 0 1 25 ")
+			wait(0.2)
+				runCommand("playsong 289452282 0 1 25 ")
+			wait(5)
+				runCommand("playsong 18765052890 0 1 25 ")
+			wait(1)
+				runCommand("alert all Flooding systems failed, overriding control of SCP-⓪⑦⑥-②'s blast doors, please hold. ")
+			wait(1)
+				runCommand("playsong 76780930096850 0 1.5 25 ")
+			wait(4)
+				runCommand("countdown 5 ")
+			wait(6)
+				runCommand("alert all Failed...... Attempting to enable remote turrets to terminate the threat. ")
+				runCommand("playsound all 120887155363460 0 1.5 25 ")
+			wait(4)
+				runCommand("playsong 451660893 0 1.5 25 ")
+			wait(2)
+				runCommand("alert all Turret's act- ")
+				runCommand("playsong 90159902694616 0 1.5 25 ")
+			wait(0.3)
+				runCommand("playsong 3250635272 0 2 25 ")
+			wait(2.7)
+				runCommand("blackout true false ")
+			wait(1)
+				runCommand("alert all The Facilities main power has been disabled, attempting to kickstart backup generators, please hold. ")
+			wait(1)
+				runCommand("countdown 30 ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+			wait()
+				runCommand(" ")
+
+        else
+            runCommand("alert "..player.." Unknown code: "..argument)
+        end
+    end
+end)
