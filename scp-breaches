@@ -116,3 +116,27 @@ event("chatted", function(Data)
         end
     end
 end)
+
+
+
+
+
+			wait(0.5)
+				runCommand("modannounce [!]〔Overwatch:〕”Anomaly 076-2 is attempting a containment breach, it's shock collar has failed. Attempting to commence flood procedures” ")
+				runCommand("playsong 130576358490959 0 1.5 25 ")
+				runCommand("playsong 115660660596817 0 1 25 ")
+				runCommand("playsong 289452282 0 1 25 ")
+				runCommand("playsong 18765052890 0 1 25 ")
+				runCommand("alert all Flooding systems failed, overriding control of SCP-⓪⑦⑥-②'s blast doors, please hold. ")
+				runCommand("playsong 76780930096850 0 1.5 25 ")
+				runCommand("countdown 5 ")
+			wait(5)
+				runCommand("alert all Failed...... Attempting to enable remote turrets to terminate the threat. ")
+				runCommand("playsong 120887155363460 0 1.5 25 ")
+				runCommand("playsong 451660893 0 1.5 25 ")
+				runCommand("alert all Turret's act- ")
+				runCommand("playsong 90159902694616 0 1.5 25 ")
+				runCommand("playsong 3250635272 0 2 25 ")
+				runCommand("blackout true false ")
+				runCommand("alert all The Facilities main power has been disabled, attempting to kickstart backup generators, please hold. ")
+				runCommand("countdown 30 ")
