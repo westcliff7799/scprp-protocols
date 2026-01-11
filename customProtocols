@@ -2,7 +2,10 @@
 -- protocols by @west
 
 local statusCommand = "!protocol"
-local authorized = {"westcliff7799", "Site4o4SSUH", "SparkyAzure"}
+local authorized = {
+	"westcliff7799",
+	"Site4o4SSUH",
+	"SparkyAzure" }
 
 local function startswith(str, prefix)
     return string.sub(str:lower(), 1, #prefix) == prefix:lower()
