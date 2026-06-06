@@ -1,0 +1,56 @@
+-- source code by @friendo3
+-- protocols by @west
+
+local statusCommand = "!announce"
+local authorized = {"westcliff7799", "Area14_BSSU"}
+
+local function startswith(str, prefix)
+    return string.sub(str:lower(), 1, #prefix) == prefix:lower()
+end
+
+event("chatted", function(Data)
+    local player = Data.Value[1]
+    local msg = Data.Value[2]
+
+    if startswith(msg, statusCommand) then
+        if not table.find(authorized, player) then
+            runCommand("alert " .. player .. " You are not authorized to use this command.")
+            return
+        end
+
+        local argument = string.sub(msg, #statusCommand + 2)
+        argument = argument:gsub("^%s*(.-)%s*$", "%1")
+
+        if argument == "" then
+            runCommand("alert " .. player .. " Please specify a code.")
+            return
+        end
+        local argLower = argument:lower()
+
+		if argLower == "stopall" then
+			runCommand("stopsong")
+			runCommand("rlight")
+			runCommand("stopsounds all")
+			runCommand("removesideinfo")
+
+		elseif argLower == "cdreminder" then
+			announce("If you spawn at the CDCZ, please reset until you spawn at Auditorium.")
+
+		elseif argLower == "introduction" then
+			announce("Hello everyone, I welcome y'all to the 2nd day of this grand event.")
+			wait(15)
+			announce("As you all know, according to the jist, its a black out theme, meaning, there will be a power cut in the facility.")
+			wait(20)
+			announce("The Hiders will have 250 seconds to hide. After the hiding timer ends, the seekers will begin the hunt.")
+			wait(20)
+			announce("They will be given 1200 seconds to hunt. What abilities the seekers will have? Its a mystery.")
+			wait(20)
+			announce("Victory conditions: For the hiders to win, they have to stay alive until 1200 seconds.")
+			wait(20)
+			announce("For the seekers to win, they have to hunt every hider before the timer runs out.")
+
+        else
+            runCommand("alert "..player.." Unknown code: "..argument)
+        end
+    end
+end)
