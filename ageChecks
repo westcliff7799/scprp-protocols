@@ -1,0 +1,148 @@
+local MINIMUM_ACCOUNT_AGE = 7
+local REVIEW_ACCOUNT_AGE = 30
+
+local WEBHOOK_URL = "https://discord.com/api/webhooks/1513620940398002217/bkbmOg7KfS1SfQKEirH6uSCXXatm_6sXKfdgZ0wuGzgq7k42Aa5esDfSLbj9M7ibgZan"
+
+local ageCache = {}
+
+local function sendWebhook(username, userId, age, action)
+
+    local title, color, description, actionText
+
+    if action == "kick" then
+        title = "🚫 Account Automatically Rejected"
+        color = 15158332
+        description = "Account is below the minimum age requirement."
+        actionText = "KICKED"
+
+    elseif action == "review" then
+        title = "⚠️ Account Review Required"
+        color = 15844367
+        description = "Account is under 30 days old and should be reviewed by staff."
+        actionText = "REVIEW"
+
+    elseif action == "clear" then
+        title = "✅ Account Cleared"
+        color = 3066993
+        description = "Account meets all security requirements."
+        actionText = "CLEARED"
+
+    else
+        return
+    end
+
+    http(
+        WEBHOOK_URL,
+        "POST",
+        {
+            ["Content-Type"] = "application/json"
+        },
+        jsonEncode({
+            embeds = {{
+                title = title,
+                description = description,
+                color = color,
+
+                fields = {
+                    {
+                        name = "Username",
+                        value = tostring(username),
+                        inline = true
+                    },
+                    {
+                        name = "User ID",
+                        value = tostring(userId),
+                        inline = true
+                    },
+                    {
+                        name = "Account Age",
+                        value = tostring(age) .. " days",
+                        inline = true
+                    },
+                    {
+                        name = "Action",
+                        value = actionText,
+                        inline = true
+                    },
+                    {
+                        name = "Profile Link",
+                        value = "https://www.roblox.com/users/" .. tostring(userId) .. "/profile",
+                        inline = false
+                    }
+                },
+
+                footer = {
+                    text = "SCP:RP Account Age Monitor"
+                },
+
+                timestamp = os.date("!%Y-%m-%dT%H:%M:%SZ")
+            }}
+        })
+    )
+end
+
+local function getAccountAge(userId)
+    if ageCache[userId] then
+        return ageCache[userId]
+    end
+
+    local result = http(
+        "https://roblox-age-api.onrender.com/age/" .. userId
+    )
+
+    if not result.Success then
+        warn("Failed to retrieve account age for", userId)
+        return nil
+    end
+
+    local data = jsonDecode(result.Body)
+
+    if not data or not data.age then
+        warn("Invalid age API response for", userId)
+        return nil
+    end
+
+    ageCache[userId] = tonumber(data.age)
+
+    return ageCache[userId]
+end
+
+event("joined", function(player)
+
+    local username = player.Value
+    local userId = getUserId(username)
+
+    if not userId then
+        warn("Could not resolve UserId for", username)
+        return
+    end
+
+    local age = getAccountAge(userId)
+
+    if not age then
+        return
+    end
+
+    print(username .. " | Age: " .. age .. " days")
+
+    if age < MINIMUM_ACCOUNT_AGE then
+        sendWebhook(username, userId, age, "kick")
+
+        runCommand(
+            "kick " ..
+            username ..
+            " Account must be at least " ..
+            MINIMUM_ACCOUNT_AGE ..
+            " days old"
+        )
+
+        return
+    end
+
+    if age < REVIEW_ACCOUNT_AGE then
+        sendWebhook(username, userId, age, "review")
+    else
+        sendWebhook(username, userId, age, "clear")
+    end
+
+end)
