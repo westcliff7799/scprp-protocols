@@ -1,0 +1,107 @@
+-- source code by @friendo3
+-- protocols by @west
+
+local statusCommand = "!lrc"
+local authorized = {"westcliff7799", "Area14_BSSU"}
+
+local function startswith(str, prefix)
+    return string.sub(str:lower(), 1, #prefix) == prefix:lower()
+end
+
+event("chatted", function(Data)
+    local player = Data.Value[1]
+    local msg = Data.Value[2]
+
+    if startswith(msg, statusCommand) then
+        if not table.find(authorized, player) then
+            runCommand("alert " .. player .. " You are not authorized to use this command.")
+            return
+        end
+
+        local argument = string.sub(msg, #statusCommand + 2)
+        argument = argument:gsub("^%s*(.-)%s*$", "%1")
+
+        if argument == "" then
+            runCommand("alert " .. player .. " Please specify a code.")
+            return
+        end
+        local argLower = argument:lower()
+
+		if argLower == "stopall" then
+			runCommand("stopsong")
+			runCommand("rlight")
+			runCommand("stopsounds all")
+			runCommand("removesideinfo")
+
+		elseif argLower == "test" then
+			runCommand("playsong 4518393274")
+			wait(1)
+			for i = 1, 5 do
+			    resetLights()
+			    wait(0.2)
+			    colorLights(175, 50, 50)
+			    wait(0.3)
+			    disableLights(3)
+			    wait(0.5)
+			    resetLights()
+			    wait(0.7)
+			    colorLights(255, 191, 0)
+			    wait(1)
+			    disableLights(1)
+			    wait(0.5)
+			end
+			resetLights()
+
+		elseif argLower == "amber" then
+			runCommand("playsong 1841153093")
+			wait(20)
+			runCommand("playsong 128254842670822 loop")
+			wait(9)
+			colorLights(94,62,22)
+			sideinfo("〔 LRC - 14/A/AMBER 〕", Color3.fromRGB(255, 191, 0), Color3.fromRGB(9, 10, 12))
+			subsideinfo("〔 Cognitohazardous threat detected. Do not look, listen, or interact 〕", Color3.fromRGB(255, 191, 0), Color3.fromRGB(9, 10, 12))
+			runCommand("playsound all 7753469090 loop 1 99999999")
+			wait(21)
+				runCommand("playsound all 484811980 6")
+				announce("[⚠]〔CARETAKER:〕”PHNX/A/AMBER”---Lockdown procedure code {AMBER} has been declared on priority level {A} by proper authorities. Do not look, listen, or interact. Remain stationary. ")
+
+		elseif argLower == "blue" then
+			runCommand("playsong 1841153093")
+			wait(20)
+			runCommand("playsong 128254842670822 loop")
+			wait(9)
+			colorLights(94,62,22)
+			sideinfo("〔 LRC - 14/A/AMBER 〕", Color3.fromRGB(255, 191, 0), Color3.fromRGB(9, 10, 12))
+			subsideinfo("〔 Cognitohazardous threat detected. Do not look, listen, or interact 〕", Color3.fromRGB(255, 191, 0), Color3.fromRGB(9, 10, 12))
+			runCommand("playsound all 7753469090 loop 1 99999999")
+			wait(21)
+				runCommand("playsound all 484811980 6")
+				announce("[⚠]〔CARETAKER:〕”PHNX/A/AMBER”---Lockdown procedure code {AMBER} has been declared on priority level {A} by proper authorities. Do not look, listen, or interact. Remain stationary. ")
+
+		elseif argLower == "blue1`" then
+			runCommand("playsong 1841153093")
+			runCommand("delay 20 playsong 117822044981825")
+			runCommand("delay 30 light 4 55 87")
+			runCommand("delay 27 sideinfo 〔LRC - 14/C/BLUE〕 4 55 87 9 10 12 ")
+			runCommand("delay 30 subsideinfo 〔 Containment breach detected. Security teams respond. 〕 4 55 87 9 10 12")
+			runCommand("delay 30 playsound all 7753469090 loop 1 99999999")
+			runCommand("delay 41 playsound all 5022921954")
+			delay(41)
+				announce("[!]〔CARETAKER:〕”PHNX/C/BLUE”---Lockdown procedure code {BLUE} has been declared on priority level {C} by proper authorities. A minor containment breach has occurred.")			
+
+		elseif argLower == "superblue" then
+			runCommand("playsong 1841153093")
+			runCommand("delay 20 playsong 117822044981825")
+			runCommand("delay 30 light 4 55 87")
+			runCommand("delay 29 sideinfo 〔 LRC - 14/B/SUPERBLUE 〕 4 55 87 9 10 12")
+			runCommand("delay 30 subsideinfo 〔 Containment breach detected. Security teams respond. 〕 4 55 87 9 10 12")
+			runCommand("delay 30 playsound all 7753469090 loop 1 99999999")
+			runCommand("delay 41 playsound all 5022921954")
+			wait(41)
+				announce("[⚠]〔CARETAKER:〕”PHNX/B/SUPER-BLUE”---Lockdown procedure code {SUPER-BLUE} has been declared on priority level {B} by proper authorities.")
+
+        else
+            runCommand("alert "..player.." Unknown code: "..argument)
+        end
+    end
+end)
